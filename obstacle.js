@@ -5,15 +5,17 @@ function Obstacle() {
   this.y = random(0, height-this.height);
 
   this.show = function() {
-    fill(255);
+    push()
+    fill(255, 128);
     rect(this.x, this.y, this.width, this.height);
+    pop()
   }
 
   this.crashed = function(pos) {
-    return (pos.x > obstacle.x &&
-            pos.x < obstacle.x+obstacle.width &&
-            pos.y > obstacle.y &&
-            pos.y < obstacle.y+obstacle.height)
+    return (pos.x > this.x &&
+            pos.x < this.x+this.width &&
+            pos.y > this.y &&
+            pos.y < this.y+this.height)
   }
 
 }

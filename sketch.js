@@ -2,7 +2,7 @@ var population;
 var lifespan = 500;
 var count = 0;
 var target;
-var obstacle;
+var obstacles = [];
 
 var rx = 200;
 var ry = 200;
@@ -13,7 +13,9 @@ function setup() {
   createCanvas(500, 500);
   population = new Population();
   target = createVector(random(0.25*width, 0.75*width), 50);
-  obstacle = new Obstacle();
+  for (var i = 0; i < 10; i++) {
+    obstacles[i] = new Obstacle();
+  }
 }
 
 function draw() {
@@ -29,7 +31,9 @@ function draw() {
 
   count++;
 
-  obstacle.show();
+  for (var i = 0; i < obstacles.length; i++) {
+    obstacles[i].show();
+  }
 
   push();
   ellipseMode(RADIUS);

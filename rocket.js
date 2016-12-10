@@ -28,8 +28,11 @@ function Rocket(dna) {
       }
 
       // Crashed at obstacle
-      if (obstacle.crashed(this.pos)) {
-        this.crashed = count;
+      for (var i = 0; i < obstacles.length; i++) {
+        if (obstacles[i].crashed(this.pos)) {
+          this.crashed = count;
+          break;
+        }
       }
 
       // Crashed at borders
