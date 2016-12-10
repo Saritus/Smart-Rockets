@@ -29,6 +29,10 @@ function Rocket(dna) {
       this.crashed = true;
     }
 
+    if (this.pos.x < 0 || this.pos.x > width) {
+      this.crashed = true;
+    }
+
     this.applyForce(this.dna.genes[count]);
     if (!this.completed && !this.crashed) {
       this.vel.add(this.acc);
@@ -54,6 +58,9 @@ function Rocket(dna) {
 
     if(this.completed) {
       this.fitness *= 10;
+    }
+    if(this.crashed) {
+      this.fitness /= 10;
     }
   }
 }
