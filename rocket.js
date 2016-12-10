@@ -30,6 +30,6 @@ function Rocket() {
 
   this.calcFitness = function() {
     var d = dist(this.pos.x, this.pos.x, target.x, target.y);
-    this.fitness = 1 / d;
+    this.fitness = map(d, 0, width, width, 0);
   }
 }
