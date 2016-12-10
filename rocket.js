@@ -1,5 +1,5 @@
 function Rocket(dna) {
-  this.pos = createVector(width/2, height - 10);
+  this.pos = createVector(10, height - 10);
   this.vel = createVector();
   this.acc = createVector();
   this.fitness = 0;
@@ -63,7 +63,7 @@ function Rocket(dna) {
 
   this.calcFitness = function() {
     var d = dist(this.pos.x, this.pos.y, target.x, target.y);
-    this.fitness = map(d, 0, width, width, 0);
+    this.fitness = map(d, 0, width + height, width + height, 0);
 
     if(this.completed) {
       this.fitness *= map(this.completed, 0, count, 20, 2);
