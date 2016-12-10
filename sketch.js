@@ -1,5 +1,5 @@
 var population;
-var lifespan = 200;
+var lifespan = 300;
 var count = 0;
 var target;
 
@@ -14,7 +14,9 @@ function draw() {
   population.run();
 
   if (count == lifespan) {
-    population = new Population();
+    population.evaluate();
+    population.selection();
+    //population = new Population();
     count = 0;
   }
 

@@ -13,8 +13,8 @@ function DNA(genes) {
 
   this.crossover = function(partner) {
     var newgenes = [];
-    var mid = floor(random(genes.length));
-    for (var i = 0; i < genes.length; i++) {
+    var mid = floor(random(this.genes.length));
+    for (var i = 0; i < this.genes.length; i++) {
       if (i < mid) {
         newgenes[i] = this.genes[i];
       }
