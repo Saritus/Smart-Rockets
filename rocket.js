@@ -6,4 +6,10 @@ function Rocket() {
   this.applyForce = function(force) {
     this.acc.add(force);
   }
+
+  this.update = function() {
+    this.vel.add(acc);
+    this.pos.add(vel);
+    this.acc.mult(0);
+  }
 }
