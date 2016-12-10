@@ -1,6 +1,6 @@
 function Rocket() {
   this.pos = createVector(width/2, height);
-  this.vel = createVector(0, -1);
+  this.vel = p5.Vector.random2D();
   this.acc = createVector();
 
   this.applyForce = function(force) {
