@@ -1,17 +1,17 @@
 var population;
-var lifespan = 300;
+var lifespan = 500;
 var count = 0;
 var target;
 
-var rx = 150;
+var rx = 200;
 var ry = 200;
-var rw = 200;
+var rw = 100;
 var rh = 10;
 
 function setup() {
   createCanvas(500, 500);
   population = new Population();
-  target = createVector(width/2, 50);
+  target = createVector(random(0.25*width, 0.75*width), 50);
 }
 
 function draw() {
