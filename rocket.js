@@ -44,7 +44,10 @@ function Rocket(dna) {
       this.vel.add(this.acc);
       this.pos.add(this.vel);
       this.acc.mult(0);
+
+      return 1;
     }
+    return 0;
   }
 
   this.show = function() {
