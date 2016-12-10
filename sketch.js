@@ -1,5 +1,5 @@
 var population;
-var lifespan = 500;
+var lifespan = 1000;
 var count = 0;
 var target;
 var obstacles = [];
@@ -14,7 +14,7 @@ function setup() {
   population = new Population();
   target = createVector(random(0.25*width, 0.75*width), 50);
 
-  for (var i = 0; i < 30; i++) {
+  for (var i = 0; i < 150; i++) {
     obstacles[i] = new Obstacle();
   }
 }
