@@ -17,6 +17,7 @@ function Population() {
   this.evaluate = function() {
     var maxfitness = 0;
     var allfitness = 0;
+    var completed = 0;
     for (var i = 0; i < this.popsize; i++) {
       this.rockets[i].calcFitness();
       if (this.rockets[i].fitness > maxfitness) {
@@ -27,8 +28,9 @@ function Population() {
     for (var i = 0; i < this.popsize; i++) {
       this.rockets[i].fitness /= maxfitness;
       allfitness += this.rockets[i].fitness;
+      completed += this.rockets[i].completed;
     }
-    console.log(allfitness);
+    console.log(completed);
 
     this.matingpool = [];
     for (var i = 0; i < this.popsize; i++) {
@@ -46,6 +48,7 @@ function Population() {
       var parentA = random(this.matingpool).dna;
       var parentB = random(this.matingpool).dna;
       var child = parentA.crossover(parentB);
+      child.mutation();
       newRockets[i] = new Rocket(child);
     }
     this.rockets = newRockets;

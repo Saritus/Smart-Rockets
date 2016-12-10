@@ -4,6 +4,7 @@ function Rocket(dna) {
   this.acc = createVector();
   this.fitness = 0;
   this.completed = false;
+  this.crashed = false;
 
   if (dna) {
     this.dna = dna;
@@ -24,8 +25,12 @@ function Rocket(dna) {
       this.pos = target.copy();
     }
 
+    if (this.pos.x > rx && this.pos.x < rx+rw && this.pos.y > ry && this.pos.y < ry+rh) {
+      this.crashed = true;
+    }
+
     this.applyForce(this.dna.genes[count]);
-    if (!this.completed) {
+    if (!this.completed && !this.crashed) {
       this.vel.add(this.acc);
       this.pos.add(this.vel);
       this.acc.mult(0);
@@ -44,7 +49,7 @@ function Rocket(dna) {
   }
 
   this.calcFitness = function() {
-    var d = dist(this.pos.x, this.pos.x, target.x, target.y);
+    var d = dist(this.pos.x, this.pos.y, target.x, target.y);
     this.fitness = map(d, 0, width, width, 0);
 
     if(this.completed) {
