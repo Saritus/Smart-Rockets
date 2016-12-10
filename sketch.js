@@ -16,7 +16,7 @@ function setup() {
   background(0);
   population = new Population(200);
   env = new Environment();
-  env.createStripes(3);
+  env.createStripes(4);
   target = createVector(random(0.25*width, 0.75*width), 25);
 }
 
