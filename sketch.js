@@ -4,6 +4,7 @@ var count = 0;
 var target;
 var obstacles = [];
 var generation = 1;
+var start;
 
 var rx = 200;
 var ry = 200;
@@ -16,7 +17,7 @@ function setup() {
   population = new Population(200);
   target = createVector(random(0.25*width, 0.75*width), 25);
 
-  for (var i = 0; i < 50; i++) {
+  for (var i = 0; i < 0; i++) {
     obstacles[i] = new Obstacle();
   }
 }
@@ -47,6 +48,12 @@ function draw() {
   pop();
 }
 
-function mouseClicked() {
-  obstacles[obstacles.length] = new Obstacle(mouseX, mouseY);
+function mousePressed() {
+  start = createVector(mouseX, mouseY);
+  print(start);
+}
+
+function mouseReleased() {
+  obstacles[obstacles.length] = new Obstacle(start.x, start.y, mouseX-start.x, mouseY-start.y);
+  //print(obstacles.length);
 }
