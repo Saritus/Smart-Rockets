@@ -35,4 +35,10 @@ function Population() {
       }
     }
   }
+
+  this.selection = function() {
+    var parentA = random(this.matingpool);
+    var parentB = random(this.matingpool);
+    var child = parentA.crossover(parentB);
+  }
 }
