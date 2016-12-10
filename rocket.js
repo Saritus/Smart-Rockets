@@ -60,10 +60,10 @@ function Rocket(dna) {
     this.fitness = map(d, 0, width, width, 0);
 
     if(this.completed) {
-      this.fitness *= map(this.completed, 0, lifespan, lifespan, 0);
+      this.fitness *= map(this.completed, 0, lifespan, lifespan, 1);
     }
     if(this.crashed) {
-      this.fitness /= map(this.crashed, 0, lifespan, lifespan, 0);
+      this.fitness /= map(this.crashed, 0, lifespan, lifespan, 1);
     }
   }
 }
