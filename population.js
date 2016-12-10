@@ -1,6 +1,11 @@
-function Population() {
+function Population(size) {
   this.rockets = [];
-  this.popsize = 500;
+  if (size) {
+    this.popsize = size;
+  }
+  else {
+    this.popsize = 100;
+  }
   this.matingpool = [];
 
   for (var i = 0; i < this.popsize; i++) {
@@ -37,6 +42,7 @@ function Population() {
       }
     }
     //console.log(this.matingpool.length);
+    return maxfitness;
   }
 
   this.selection = function() {
