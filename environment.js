@@ -1,5 +1,6 @@
 function Environment() {
   this.obstacles = [];
+  this.targets = []
 
   this.size = function() {
     return this.obstacles.length;
@@ -42,9 +43,7 @@ function Environment() {
       this.createObstacle(openstart+openwidth, 1 + height/sections*i, width-openstart-openwidth, 5); // RIGHT
       openstart += random(-(height/sections), (height/sections));
     }
-
     return openstart + (openwidth/2);
   }
-
 
 }

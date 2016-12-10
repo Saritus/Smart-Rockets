@@ -1,5 +1,5 @@
 var population;
-var lifespan = 500;
+var lifespan;
 var count = 0;
 var target;
 var env;
@@ -14,6 +14,7 @@ var rh = 10;
 function setup() {
   createCanvas(500, 800);
   background(0);
+  lifespan = height;
   population = new Population(200);
   env = new Environment();
   var xende = env.createStripes(50);
@@ -24,7 +25,7 @@ function draw() {
   background(0, 50);
 
   var alive = population.run();
-  if (count == lifespan || alive == 0 || population.completed > 50) {
+  if (count == lifespan || alive < 50 || population.completed > 50) {
     var avgfitness = population.evaluate();
     population.selection();
     console.log(count, alive, floor(avgfitness));

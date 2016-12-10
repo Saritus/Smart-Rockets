@@ -22,11 +22,17 @@ function Rocket(dna) {
 
     if (!this.completed && !this.crashed) {
 
-      var d = dist(this.pos.x, this.pos.y, target.x, target.y);
+      /*var d = dist(this.pos.x, this.pos.y, target.x, target.y);
       if (d < 10) {
         this.completed = count;
         population.completed++;
         this.pos = target.copy();
+      }*/
+
+      // Reached the top
+      if(this.pos.y < 0) {
+        this.completed = count;
+        population.completed++;
       }
 
       // Crashed at environment
@@ -35,7 +41,7 @@ function Rocket(dna) {
       }
 
       // Crashed at borders
-      if (this.pos.x < 0 || this.pos.x > width || this.pos.y < 0 || this.pos.y > height) {
+      if (this.pos.x < 0 || this.pos.x > width || this.pos.y > height) {
         this.crashed = count;
       }
 
