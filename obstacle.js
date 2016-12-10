@@ -1,8 +1,9 @@
 function Obstacle() {
+  var border = 10;
   this.width = random(10, 20);
   this.height = random(10, 20);
-  this.x = random(0, width-this.width);
-  this.y = random(0, height-this.height);
+  this.x = random(border, width - this.width - border);
+  this.y = random(border, height - this.height - border);
 
   this.show = function() {
     push()
