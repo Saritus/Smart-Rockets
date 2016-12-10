@@ -1,5 +1,5 @@
 function Rocket(dna) {
-  this.pos = createVector(width/2, height);
+  this.pos = createVector(width/2, height - 10);
   this.vel = createVector();
   this.acc = createVector();
   this.fitness = 0;
@@ -33,7 +33,7 @@ function Rocket(dna) {
       }
 
       // Crashed at borders
-      if (this.pos.x < 0 || this.pos.x > width || this.pos.y < 0) {
+      if (this.pos.x < 0 || this.pos.x > width || this.pos.y < 0 || this.pos.y > height) {
         this.crashed = count;
       }
 
