@@ -1,19 +1,22 @@
-function Obstacle(x, y) {
+function Obstacle(x, y, rwidth, rheight) {
   var border = 10;
-  this.width = random(10, 20);
-  this.height = random(10, 20);
-  if (x) {
-    this.x = x;
+
+  this.width = abs(rwidth) || random(10, 20);
+  this.height = abs(rheight) || random(10, 20);
+  if(rwidth<0) {
+    this.x = x - this.width || random(border, width - this.width - border);
   }
   else {
-    this.x = random(border, width - this.width - border);
+    this.x = x || random(border, width - this.width - border);
   }
-  if (x) {
-    this.y = y;
+  if(rheight<0) {
+  this.y = y - this.height || random(border, height - this.height - border);
   }
   else {
-    this.y = random(border, height - this.height - border);
+  this.y = y || random(border, height - this.height - border);
   }
+
+
 
   this.show = function() {
     push()
@@ -24,9 +27,9 @@ function Obstacle(x, y) {
 
   this.crashed = function(pos) {
     return (pos.x > this.x &&
-            pos.x < this.x+this.width &&
+            pos.x < this.x + this.width &&
             pos.y > this.y &&
-            pos.y < this.y+this.height)
+            pos.y < this.y + this.height)
   }
 
 }
