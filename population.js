@@ -12,4 +12,8 @@ function Population() {
       this.rockets[i].show();
     }
   }
+
+  this.evaluate = function() {
+    
+  }
 }

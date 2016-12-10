@@ -9,7 +9,7 @@ function Rocket() {
   }
 
   this.update = function() {
-    this.applyForce(this.dna.genes[this.count]);
+    this.applyForce(this.dna.genes[count]);
 
     this.vel.add(this.acc);
     this.pos.add(this.vel);
