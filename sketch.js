@@ -11,18 +11,19 @@ var rh = 10;
 
 function setup() {
   createCanvas(500, 500);
+  background(0);
   population = new Population();
   target = createVector(random(0.25*width, 0.75*width), 50);
 
-  for (var i = 0; i < 150; i++) {
+  for (var i = 0; i < 50; i++) {
     obstacles[i] = new Obstacle();
   }
 }
 
 function draw() {
-  background(0);
-  var alive = population.run();
+  background(0, 50);
 
+  var alive = population.run();
   if (count == lifespan || alive == 0) {
     population.evaluate();
     population.selection();
@@ -39,7 +40,7 @@ function draw() {
 
   push();
   ellipseMode(RADIUS);
-  fill(255, 200);
+  fill(255, 50, 50, 200);
   ellipse(target.x, target.y, 5, 5);
   pop();
 }

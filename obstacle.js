@@ -6,7 +6,7 @@ function Obstacle() {
 
   this.show = function() {
     push()
-    fill(255, 128);
+    fill(255, 255, 0, 128);
     rect(this.x, this.y, this.width, this.height);
     pop()
   }
