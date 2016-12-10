@@ -27,7 +27,12 @@ function draw() {
 
   count++;
 
+  push();
   rect(rx, ry, rw, rh);
 
-  ellipse(target.x, target.y, 20, 20);
+
+  ellipseMode(RADIUS);
+  fill(255, 100);
+  ellipse(target.x, target.y, 5, 5);
+  pop();
 }
