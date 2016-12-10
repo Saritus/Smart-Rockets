@@ -51,7 +51,7 @@ function Rocket(dna) {
     translate(this.pos.x, this.pos.y);
     rotate(this.vel.heading());
     rectMode(CENTER);
-    rect(0, 0, 25, 5);
+    rect(0, 0, 15, 3);
     pop();
   }
 
@@ -60,10 +60,10 @@ function Rocket(dna) {
     this.fitness = map(d, 0, width, width, 0);
 
     if(this.completed) {
-      this.fitness *= map(this.completed, 0, lifespan, lifespan, 1);
+      this.fitness *= map(this.completed, 0, lifespan, lifespan, 10);
     }
     if(this.crashed) {
-      this.fitness /= map(this.crashed, 0, lifespan, lifespan, 1);
+      this.fitness /= map(this.crashed, 0, lifespan, lifespan, 10);
     }
   }
 }
