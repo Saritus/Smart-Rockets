@@ -19,22 +19,25 @@ function Rocket(dna) {
 
   this.update = function() {
 
-    var d = dist(this.pos.x, this.pos.y, target.x, target.y);
-    if (d < 10) {
-      this.completed = true;
-      this.pos = target.copy();
-    }
-
-    if (this.pos.x > rx && this.pos.x < rx+rw && this.pos.y > ry && this.pos.y < ry+rh) {
-      this.crashed = true;
-    }
-
-    if (this.pos.x < 0 || this.pos.x > width) {
-      this.crashed = true;
-    }
-
-    this.applyForce(this.dna.genes[count]);
     if (!this.completed && !this.crashed) {
+
+      var d = dist(this.pos.x, this.pos.y, target.x, target.y);
+      if (d < 10) {
+        this.completed = true;
+        this.pos = target.copy();
+      }
+
+      // Crashed at obstacle
+      if (this.pos.x > rx && this.pos.x < rx+rw && this.pos.y > ry && this.pos.y < ry+rh) {
+        this.crashed = true;
+      }
+
+      // Crashed at borders
+      if (this.pos.x < 0 || this.pos.x > width || this.pos.y < 0) {
+        this.crashed = true;
+      }
+
+      this.applyForce(this.dna.genes[count]);
       this.vel.add(this.acc);
       this.pos.add(this.vel);
       this.acc.mult(0);
