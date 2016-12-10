@@ -1,5 +1,6 @@
 var population;
 var lifespan = 200;
+var count = 0;
 
 function setup() {
   createCanvas(500, 500);
@@ -9,4 +10,5 @@ function setup() {
 function draw() {
   background(0);
   population.run();
+  count++;
 }
