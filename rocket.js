@@ -28,7 +28,7 @@ function Rocket(dna) {
       }
 
       // Crashed at obstacle
-      if (this.pos.x > rx && this.pos.x < rx+rw && this.pos.y > ry && this.pos.y < ry+rh) {
+      if (obstacle.crashed(this.pos)) {
         this.crashed = count;
       }
 
