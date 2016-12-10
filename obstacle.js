@@ -10,10 +10,10 @@ function Obstacle(x, y, rwidth, rheight) {
     this.x = x || random(border, width - this.width - border);
   }
   if(rheight<0) {
-  this.y = y - this.height || random(border, height - this.height - border);
+    this.y = y - this.height || random(border, height - this.height - border);
   }
   else {
-  this.y = y || random(border, height - this.height - border);
+    this.y = y || random(border, height - this.height - border);
   }
 
 

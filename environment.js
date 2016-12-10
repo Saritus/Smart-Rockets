@@ -28,9 +28,19 @@ function Environment() {
     }
   }
 
-  this.createRandomSquares = function(amount) {
+  this.createSquares = function(amount) {
     for(var i = 0; i < amount; i++) {
       this.createObstacle();
+    }
+  }
+
+  this.createStripes = function(sections) {
+    for(var i = 1; i <= sections; i++) {
+      var opening = random(width/2);
+      // LEFT
+      this.createObstacle(1, 1 + height/sections*i, opening, 5);
+      // RIGHT
+      this.createObstacle(opening+100, 1 + height/sections*i, width-opening-100, 5);
     }
   }
 
