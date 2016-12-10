@@ -7,5 +7,6 @@ function setup() {
 
 function draw() {
   background(0);
+  rocket.update();
   rocket.show();
 }
