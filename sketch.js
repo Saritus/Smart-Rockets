@@ -1,8 +1,9 @@
 var population;
-var lifespan = 1000;
+var lifespan = 500;
 var count = 0;
 var target;
 var obstacles = [];
+var generation = 1;
 
 var rx = 200;
 var ry = 200;
@@ -12,10 +13,10 @@ var rh = 10;
 function setup() {
   createCanvas(500, 500);
   background(0);
-  population = new Population(100);
-  target = createVector(width-10, 10);
+  population = new Population(200);
+  target = createVector(random(0.25*width, 0.75*width), 25);
 
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < 50; i++) {
     obstacles[i] = new Obstacle();
   }
 }
@@ -25,11 +26,11 @@ function draw() {
 
   var alive = population.run();
   if (count == lifespan || alive == 0) {
-    var maxfitness = population.evaluate();
+    var avgfitness = population.evaluate();
     population.selection();
-    //population = new Population();
-    console.log(count, alive, floor(maxfitness));
+    console.log(count, alive, floor(avgfitness));
     count = 0;
+    generation++;
   }
 
   count++;

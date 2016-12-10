@@ -22,9 +22,10 @@ function Population(size) {
 
   this.evaluate = function() {
     var maxfitness = 0;
-
+    var sumfitness = 0;
     for (var i = 0; i < this.popsize; i++) {
       this.rockets[i].calcFitness();
+      sumfitness += this.rockets[i].fitness;
       if (this.rockets[i].fitness > maxfitness) {
         maxfitness = this.rockets[i].fitness;
       }
@@ -41,8 +42,7 @@ function Population(size) {
         this.matingpool.push(this.rockets[i]);
       }
     }
-    //console.log(this.matingpool.length);
-    return maxfitness;
+    return sumfitness/this.popsize;
   }
 
   this.selection = function() {
