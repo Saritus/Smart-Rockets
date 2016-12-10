@@ -13,7 +13,7 @@ function setup() {
   createCanvas(500, 500);
   population = new Population();
   target = createVector(random(0.25*width, 0.75*width), 50);
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 20; i++) {
     obstacles[i] = new Obstacle();
   }
 }
