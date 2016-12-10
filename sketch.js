@@ -3,6 +3,7 @@ var lifespan = 500;
 var count = 0;
 var target;
 var obstacles = [];
+var env;
 var generation = 1;
 var start;
 
@@ -15,6 +16,7 @@ function setup() {
   createCanvas(500, 500);
   background(0);
   population = new Population(200);
+  env = new Environment();
   target = createVector(random(0.25*width, 0.75*width), 25);
 
   for (var i = 0; i < 0; i++) {

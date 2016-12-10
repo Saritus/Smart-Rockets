@@ -1,3 +1,3 @@
 function Environment() {
-  
+  this.obstacles = [];
 }

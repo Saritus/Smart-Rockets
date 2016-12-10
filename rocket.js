@@ -2,6 +2,7 @@ function Rocket(dna) {
   this.pos = createVector(width/2, height - 25);
   this.vel = createVector();
   this.acc = createVector();
+  this.maxVel = 2;
   this.fitness = 0;
   this.completed = 0;
   this.crashed = 0;
@@ -43,6 +44,7 @@ function Rocket(dna) {
 
       this.applyForce(this.dna.genes[count]);
       this.vel.add(this.acc);
+      this.vel.limit(this.maxVel);
       this.pos.add(this.vel);
       this.acc.mult(0);
 
