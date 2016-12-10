@@ -12,12 +12,12 @@ var rw = 100;
 var rh = 10;
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(500, 800);
   background(0);
   population = new Population(200);
   env = new Environment();
-  env.createStripes(6);
-  target = createVector(random(0.25*width, 0.75*width), 25);
+  var xende = env.createStripes(50);
+  target = createVector(xende, 25);
 }
 
 function draw() {
@@ -45,11 +45,11 @@ function draw() {
 }
 
 function mousePressed() {
-  start = createVector(mouseX, mouseY);
-  print(start);
+  //start = createVector(mouseX, mouseY);
+  //print(start);
 }
 
 function mouseReleased() {
-  env.add(start.x, start.y, mouseX-start.x, mouseY-start.y);
+  //env.add(start.x, start.y, mouseX-start.x, mouseY-start.y);
   //print(obstacles.length);
 }

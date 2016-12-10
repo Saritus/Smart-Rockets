@@ -62,8 +62,10 @@ function Rocket(dna) {
   }
 
   this.calcFitness = function() {
-    var d = dist(this.pos.x, this.pos.y, target.x, target.y);
-    this.fitness = map(d, 0, width + height, width + height, 0);
+    //var d = dist(this.pos.x, this.pos.y, target.x, target.y);
+    //this.fitness = map(d, 0, width + height, width + height, 0);
+    var d = this.pos.y;
+    this.fitness = map(d, 0, height, height, 0);
 
     if(this.completed) {
       this.fitness *= map(this.completed, 0, count, 10, 2);
