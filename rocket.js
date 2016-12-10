@@ -25,16 +25,13 @@ function Rocket(dna) {
       var d = dist(this.pos.x, this.pos.y, target.x, target.y);
       if (d < 10) {
         this.completed = count;
-        population.completed = true;
+        population.completed++;
         this.pos = target.copy();
       }
 
-      // Crashed at obstacle
-      for (var i = 0; i < obstacles.length; i++) {
-        if (obstacles[i].crashed(this.pos)) {
-          this.crashed = count;
-          break;
-        }
+      // Crashed at environment
+      if (env.crashed(this.pos)) {
+        this.crashed = count;
       }
 
       // Crashed at borders

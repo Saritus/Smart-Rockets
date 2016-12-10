@@ -2,7 +2,6 @@ var population;
 var lifespan = 500;
 var count = 0;
 var target;
-var obstacles = [];
 var env;
 var generation = 1;
 var start;
@@ -18,30 +17,24 @@ function setup() {
   population = new Population(200);
   env = new Environment();
   target = createVector(random(0.25*width, 0.75*width), 25);
-
-  for (var i = 0; i < 0; i++) {
-    obstacles[i] = new Obstacle();
-  }
 }
 
 function draw() {
   background(0, 50);
 
   var alive = population.run();
-  if (count == lifespan || alive == 0 || population.completed) {
+  if (count == lifespan || alive == 0 || population.completed > 50) {
     var avgfitness = population.evaluate();
     population.selection();
     console.log(count, alive, floor(avgfitness));
     count = 0;
     generation++;
-    population.completed = false;
+    population.completed = 0;
   }
 
   count++;
 
-  for (var i = 0; i < obstacles.length; i++) {
-    obstacles[i].show();
-  }
+  env.show();
 
   push();
   ellipseMode(RADIUS);
@@ -56,6 +49,6 @@ function mousePressed() {
 }
 
 function mouseReleased() {
-  obstacles[obstacles.length] = new Obstacle(start.x, start.y, mouseX-start.x, mouseY-start.y);
+  env.add(start.x, start.y, mouseX-start.x, mouseY-start.y);
   //print(obstacles.length);
 }
