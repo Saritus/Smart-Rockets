@@ -35,12 +35,12 @@ function Environment() {
   }
 
   this.createStripes = function(sections) {
+    var openwidth = 100;
+    var openstart = (width/2) - (openwidth/2);
     for(var i = 1; i <= sections; i++) {
-      var opening = random(width/2);
-      // LEFT
-      this.createObstacle(1, 1 + height/sections*i, opening, 5);
-      // RIGHT
-      this.createObstacle(opening+100, 1 + height/sections*i, width-opening-100, 5);
+      openstart += random(-0.75*openwidth, 0.75*openwidth);
+      this.createObstacle(1, 1 + height/sections*i, openstart, 5); // LEFT
+      this.createObstacle(openstart+openwidth, 1 + height/sections*i, width-openstart-openwidth, 5); // RIGHT
     }
   }
 
