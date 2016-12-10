@@ -28,8 +28,10 @@ function Environment() {
     }
   }
 
-  for(var i = 0; i < 5; i++) {
-    this.createObstacle();
+  this.createRandomSquares = function(amount) {
+    for(var i = 0; i < amount; i++) {
+      this.createObstacle();
+    }
   }
 
 

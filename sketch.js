@@ -16,6 +16,7 @@ function setup() {
   background(0);
   population = new Population(200);
   env = new Environment();
+  env.createRandomSquares(10);
   target = createVector(random(0.25*width, 0.75*width), 25);
 }
 
