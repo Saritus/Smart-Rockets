@@ -12,10 +12,10 @@ var rh = 10;
 function setup() {
   createCanvas(500, 500);
   background(0);
-  population = new Population();
+  population = new Population(100);
   target = createVector(width-10, 10);
 
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 100; i++) {
     obstacles[i] = new Obstacle();
   }
 }
@@ -25,10 +25,10 @@ function draw() {
 
   var alive = population.run();
   if (count == lifespan || alive == 0) {
-    population.evaluate();
+    var maxfitness = population.evaluate();
     population.selection();
     //population = new Population();
-    console.log(count, alive);
+    console.log(count, alive, floor(maxfitness));
     count = 0;
   }
 
