@@ -14,6 +14,8 @@ function Population() {
   }
 
   this.evaluate = function() {
-    
+    for (var i = 0; i < this.popsize; i++) {
+      this.rockets[i].calcFitness();
+    }
   }
 }

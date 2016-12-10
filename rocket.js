@@ -3,6 +3,7 @@ function Rocket() {
   this.vel = createVector();
   this.acc = createVector();
   this.dna = new DNA();
+  this.fitness = 0;
 
   this.applyForce = function(force) {
     this.acc.add(force);
@@ -25,5 +26,10 @@ function Rocket() {
     rectMode(CENTER);
     rect(0, 0, 25, 5);
     pop();
+  }
+
+  this.calcFitness = function() {
+    var d = dist(this.pos.x, this.pos.x, target.x, target.y);
+    this.fitness = 1 / d;
   }
 }
