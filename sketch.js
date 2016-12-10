@@ -25,12 +25,13 @@ function draw() {
   background(0, 50);
 
   var alive = population.run();
-  if (count == lifespan || alive == 0) {
+  if (count == lifespan || alive == 0 || population.completed) {
     var avgfitness = population.evaluate();
     population.selection();
     console.log(count, alive, floor(avgfitness));
     count = 0;
     generation++;
+    population.completed = false;
   }
 
   count++;
@@ -44,4 +45,8 @@ function draw() {
   fill(255, 50, 50, 200);
   ellipse(target.x, target.y, 5, 5);
   pop();
+}
+
+function mouseClicked() {
+  obstacles[obstacles.length] = new Obstacle(mouseX, mouseY);
 }
