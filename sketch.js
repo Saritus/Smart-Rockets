@@ -7,6 +7,8 @@ var count = 0;
 var generation = 1;
 // Output
 var printout;
+var avgfitness = 0;
+var alive;
 
 function setup() {
   createCanvas(500, 800);
@@ -19,12 +21,12 @@ function setup() {
 
 function draw() {
   background(0, 50);
+  printout.html('Generation: ' + generation + '<br>Lifespan: ' + count + ' / ' + lifespan + '<br>Alive: ' + alive + '<br>Avg. fitness: ' + floor(avgfitness * 10));
 
-  var alive = population.run();
+  alive = population.run();
   if (count == lifespan || alive == 0) {
-    var avgfitness = population.evaluate();
+    avgfitness = population.evaluate();
     population.selection();
-    printout.html('Generation: ' + generation + '<br>Lifespan: ' + count + '<br>Alive: ' + alive + '<br>Avg. fitness: ' + floor(avgfitness));
     count = 0;
     generation++;
   }

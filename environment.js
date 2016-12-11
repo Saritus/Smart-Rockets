@@ -64,7 +64,7 @@ function Environment() {
       this.createObstacle(1, 1 + height / sections * i, openstart, 5); // LEFT
       this.createTarget(openstart + openwidth / 4, 1 + height / sections * i, openwidth / 2, 5); // OPENING
       this.createObstacle(openstart + openwidth, 1 + height / sections * i, width - openstart - openwidth, 5); // RIGHT
-      openstart += random(-(height / sections) - (openwidth / 4), (height / sections) + (openwidth / 4));
+      openstart += random(-(height / sections) - (openwidth / 8), (height / sections) + (openwidth / 8));
     }
     return openstart + (openwidth / 2);
   }

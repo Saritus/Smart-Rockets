@@ -34,13 +34,18 @@ function Rocket(dna) {
         this.hits.push(hitindex);
       }
 
+      // Hit the top
+      if (this.pos.y < 0) {
+        this.hits.push(-1);
+      }
+
       // Crashed at environment
       if (env.crashed(this.pos)) {
         this.crashed = count;
       }
 
       // Crashed at borders
-      if (this.pos.x < 0 || this.pos.x > width || this.pos.y < 0 || this.pos.y > height) {
+      if (this.pos.x < 0 || this.pos.x > width || this.pos.y > height) {
         this.crashed = count;
       }
 
