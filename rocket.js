@@ -44,11 +44,12 @@ function Rocket(dna) {
         this.crashed = count;
       }
 
-      this.applyForce(this.dna.genes[count]);
-      this.vel.add(this.acc);
-      this.vel.limit(this.maxVel);
-      this.pos.add(this.vel);
-      this.acc.mult(0);
+      this.vel.mult(0.99); // Always slow a little bit down
+      this.applyForce(this.dna.genes[count]); // Change the velocity a bit
+      this.vel.add(this.acc); // Euler method (v = v0 + a*t)
+      this.vel.limit(this.maxVel); // Limit the velocity
+      this.pos.add(this.vel); // Euler method (s = s0 + v*t)
+      this.acc.mult(0); // Delete the acceleration
 
       return 1;
     }

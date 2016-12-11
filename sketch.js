@@ -13,7 +13,7 @@ function setup() {
   background(0);
   population = new Population(200);
   env = new Environment();
-  var xende = env.createBoxes(20, 1);
+  var xende = env.createStripes(20);
   printout = createP();
 }
 
