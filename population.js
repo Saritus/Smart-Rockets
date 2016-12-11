@@ -1,10 +1,6 @@
 function Population(size) {
   this.rockets = [];
-  if (size) {
-    this.popsize = size;
-  } else {
-    this.popsize = 100;
-  }
+  this.popsize = size || 100; // If size is 0, it creates 100;
   this.matingpool = [];
 
   for (var i = 0; i < this.popsize; i++) {

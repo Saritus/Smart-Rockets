@@ -6,12 +6,7 @@ function Rocket(dna) {
   this.fitness = 0;
   this.hits = [];
   this.crashed = 0;
-
-  if (dna) {
-    this.dna = dna;
-  } else {
-    this.dna = new DNA();
-  }
+  this.dna = dna || new DNA();
 
   this.applyForce = function(force) {
     this.acc.add(force);
