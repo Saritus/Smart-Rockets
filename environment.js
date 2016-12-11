@@ -48,7 +48,7 @@ function Environment() {
   }
 
   // CREATE ENVIRONMENTS
-  this.createSquares = function(amountObstacles, amountTargets) {
+  this.createBoxes = function(amountObstacles, amountTargets) {
     for (var i = 0; i < amountObstacles; i++) {
       this.createObstacle();
     }
