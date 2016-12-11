@@ -41,7 +41,7 @@ function Rocket(dna) {
       }
 
       // Crashed at borders
-      if (this.pos.x < 0 || this.pos.x > width || this.y < 0 || this.pos.y > height) {
+      if (this.pos.x < 0 || this.pos.x > width || this.pos.y < 0 || this.pos.y > height) {
         this.crashed = count;
       }
 
@@ -71,7 +71,7 @@ function Rocket(dna) {
     this.fitness = pow(this.hits.unique().length, 2) + 1;
 
     if(this.crashed) {
-      this.fitness /= map(this.crashed, 0, count, 10, 2);
+      this.fitness = sqrt(this.fitness);
     }
   }
 }
