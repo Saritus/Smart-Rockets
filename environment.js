@@ -49,24 +49,24 @@ function Environment() {
 
   // CREATE ENVIRONMENTS
   this.createSquares = function(amountObstacles, amountTargets) {
-    for(var i = 0; i < amountObstacles; i++) {
+    for (var i = 0; i < amountObstacles; i++) {
       this.createObstacle();
     }
-    for(var i = 0; i < amountTargets; i++) {
+    for (var i = 0; i < amountTargets; i++) {
       this.createTarget();
     }
   }
 
   this.createStripes = function(sections) {
     var openwidth = 75;
-    var openstart = (width/2) - (openwidth/2);
-    for(var i = sections-1; i > 0; i--) {
-      this.createObstacle(1, 1 + height/sections*i, openstart, 5); // LEFT
-      this.createTarget(openstart+openwidth/4, 1 + height/sections*i, openwidth/2, 5); // OPENING
-      this.createObstacle(openstart+openwidth, 1 + height/sections*i, width-openstart-openwidth, 5); // RIGHT
-      openstart += random(-(height/sections)-(openwidth/4), (height/sections)+(openwidth/4));
+    var openstart = (width / 2) - (openwidth / 2);
+    for (var i = sections - 1; i > 0; i--) {
+      this.createObstacle(1, 1 + height / sections * i, openstart, 5); // LEFT
+      this.createTarget(openstart + openwidth / 4, 1 + height / sections * i, openwidth / 2, 5); // OPENING
+      this.createObstacle(openstart + openwidth, 1 + height / sections * i, width - openstart - openwidth, 5); // RIGHT
+      openstart += random(-(height / sections) - (openwidth / 4), (height / sections) + (openwidth / 4));
     }
-    return openstart + (openwidth/2);
+    return openstart + (openwidth / 2);
   }
 
 }

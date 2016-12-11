@@ -1,5 +1,5 @@
 function Rocket(dna) {
-  this.pos = createVector(width/2, height - 25);
+  this.pos = createVector(width / 2, height - 25);
   this.vel = createVector();
   this.acc = createVector();
   this.maxVel = 2;
@@ -9,8 +9,7 @@ function Rocket(dna) {
 
   if (dna) {
     this.dna = dna;
-  }
-  else {
+  } else {
     this.dna = new DNA();
   }
 
@@ -70,7 +69,7 @@ function Rocket(dna) {
   this.calcFitness = function() {
     this.fitness = pow(this.hits.unique().length, 2) + 1;
 
-    if(this.crashed) {
+    if (this.crashed) {
       this.fitness = sqrt(this.fitness);
     }
   }

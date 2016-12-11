@@ -2,8 +2,7 @@ function Population(size) {
   this.rockets = [];
   if (size) {
     this.popsize = size;
-  }
-  else {
+  } else {
     this.popsize = 100;
   }
   this.matingpool = [];
@@ -18,7 +17,8 @@ function Population(size) {
       alive += this.rockets[i].update();
       this.rockets[i].show();
     }
-    return alive;  }
+    return alive;
+  }
 
   this.evaluate = function() {
     var maxfitness = 0;
@@ -42,7 +42,7 @@ function Population(size) {
         this.matingpool.push(this.rockets[i]);
       }
     }
-    return sumfitness/this.popsize;
+    return sumfitness / this.popsize;
   }
 
   this.selection = function() {
