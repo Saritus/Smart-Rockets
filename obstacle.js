@@ -18,6 +18,7 @@ function Obstacle(x, y, rwidth, rheight) {
 
   this.show = function() {
     push()
+    noStroke();
     fill(255, 255, 0, 128);
     rect(this.x, this.y, this.width, this.height);
     pop()

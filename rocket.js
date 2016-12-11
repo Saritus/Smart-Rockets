@@ -4,7 +4,7 @@ function Rocket(dna) {
   this.acc = createVector();
   this.maxVel = 2;
   this.fitness = 0;
-  this.completed = 0;
+  this.hits = [];
   this.crashed = 0;
 
   if (dna) {
@@ -29,10 +29,10 @@ function Rocket(dna) {
         this.pos = target.copy();
       }*/
 
-      // Reached the top
-      if(this.pos.y < 0) {
-        this.completed = count;
-        population.completed++;
+      // Hit a target
+      var hitindex;
+      if (hitindex = env.hit(this.pos)) {
+        this.hits.push(hitindex);
       }
 
       // Crashed at environment
@@ -41,7 +41,7 @@ function Rocket(dna) {
       }
 
       // Crashed at borders
-      if (this.pos.x < 0 || this.pos.x > width || this.pos.y > height) {
+      if (this.pos.x < 0 || this.pos.x > width || this.y < 0 || this.pos.y > height) {
         this.crashed = count;
       }
 
@@ -68,14 +68,8 @@ function Rocket(dna) {
   }
 
   this.calcFitness = function() {
-    //var d = dist(this.pos.x, this.pos.y, target.x, target.y);
-    //this.fitness = map(d, 0, width + height, width + height, 0);
-    var d = this.pos.y;
-    this.fitness = map(d, 0, height, height, 0);
+    this.fitness = pow(this.hits.unique().length, 2) + 1;
 
-    if(this.completed) {
-      this.fitness *= map(this.completed, 0, count, 10, 2);
-    }
     if(this.crashed) {
       this.fitness /= map(this.crashed, 0, count, 10, 2);
     }

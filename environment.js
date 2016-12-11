@@ -32,10 +32,9 @@ function Environment() {
   this.hit = function(pos) {
     for (var i = 0; i < this.targets.length; i++) {
       if (this.targets[i].hit(pos)) {
-        return true;
+        return i;
       }
     }
-    return false;
   }
 
   // DISPLAY
@@ -49,11 +48,13 @@ function Environment() {
   }
 
   // CREATE ENVIRONMENTS
-  this.createSquares = function(amount) {
-    for(var i = 0; i < amount; i++) {
+  this.createSquares = function(amountObstacles, amountTargets) {
+    for(var i = 0; i < amountObstacles; i++) {
       this.createObstacle();
     }
-    this.createTarget();
+    for(var i = 0; i < amountTargets; i++) {
+      this.createTarget();
+    }
   }
 
   this.createStripes = function(sections) {
@@ -61,6 +62,7 @@ function Environment() {
     var openstart = (width/2) - (openwidth/2);
     for(var i = sections-1; i > 0; i--) {
       this.createObstacle(1, 1 + height/sections*i, openstart, 5); // LEFT
+      this.createTarget(openstart+openwidth/4, 1 + height/sections*i, openwidth/2, 5); // OPENING
       this.createObstacle(openstart+openwidth, 1 + height/sections*i, width-openstart-openwidth, 5); // RIGHT
       openstart += random(-(height/sections)-(openwidth/4), (height/sections)+(openwidth/4));
     }

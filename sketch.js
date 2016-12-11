@@ -1,5 +1,5 @@
 var population;
-var lifespan;
+var lifespan = 500;
 var count = 0;
 var env;
 var generation = 1;
@@ -13,23 +13,21 @@ var rh = 10;
 function setup() {
   createCanvas(500, 800);
   background(0);
-  lifespan = height;
   population = new Population(200);
   env = new Environment();
-  var xende = env.createSquares(200);
+  var xende = env.createStripes(20);
 }
 
 function draw() {
   background(0, 50);
 
   var alive = population.run();
-  if (count == lifespan || alive < 50 || population.completed > 50) {
+  if (count == lifespan || alive < 50) {
     var avgfitness = population.evaluate();
     population.selection();
     console.log(count, alive, floor(avgfitness));
     count = 0;
     generation++;
-    population.completed = 0;
   }
 
   count++;
@@ -45,4 +43,21 @@ function mousePressed() {
 function mouseReleased() {
   //env.add(start.x, start.y, mouseX-start.x, mouseY-start.y);
   //print(obstacles.length);
+}
+
+Array.prototype.contains = function(v) {
+    for(var i = 0; i < this.length; i++) {
+        if(this[i] === v) return true;
+    }
+    return false;
+};
+
+Array.prototype.unique = function() {
+    var arr = [];
+    for(var i = 0; i < this.length; i++) {
+        if(!arr.contains(this[i])) {
+            arr.push(this[i]);
+        }
+    }
+    return arr;
 }
