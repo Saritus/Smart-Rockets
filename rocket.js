@@ -67,7 +67,7 @@ function Rocket(dna) {
   }
 
   this.calcFitness = function() {
-    this.fitness = pow(this.hits.unique().length, 2) + 1;
+    this.fitness = pow(this.hits.unique().length + 1, 2);
 
     if (this.crashed) {
       this.fitness = sqrt(this.fitness);
