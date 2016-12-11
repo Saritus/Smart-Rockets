@@ -1,7 +1,6 @@
 var population;
 var lifespan;
 var count = 0;
-var target;
 var env;
 var generation = 1;
 var start;
@@ -17,8 +16,7 @@ function setup() {
   lifespan = height;
   population = new Population(200);
   env = new Environment();
-  var xende = env.createStripes(50);
-  target = createVector(xende, 25);
+  var xende = env.createSquares(200);
 }
 
 function draw() {
@@ -37,12 +35,6 @@ function draw() {
   count++;
 
   env.show();
-
-  push();
-  ellipseMode(RADIUS);
-  fill(255, 50, 50, 200);
-  ellipse(target.x, target.y, 5, 5);
-  pop();
 }
 
 function mousePressed() {

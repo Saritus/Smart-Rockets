@@ -1,4 +1,4 @@
-function Obstacle(x, y, rwidth, rheight) {
+function Target(x, y, rwidth, rheight) {
   var border = 10;
 
   this.width = abs(rwidth) || random(10, 20);
@@ -18,12 +18,12 @@ function Obstacle(x, y, rwidth, rheight) {
 
   this.show = function() {
     push()
-    fill(255, 255, 0, 128);
+    fill(255, 0, 0, 128);
     rect(this.x, this.y, this.width, this.height);
     pop()
   }
 
-  this.crashed = function(pos) {
+  this.hit = function(pos) {
     return (pos.x > this.x &&
             pos.x < this.x + this.width &&
             pos.y > this.y &&
