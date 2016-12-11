@@ -5,6 +5,8 @@ var env;
 var generation = 1;
 var start;
 
+var printout;
+
 var rx = 200;
 var ry = 200;
 var rw = 100;
@@ -15,17 +17,18 @@ function setup() {
   background(0);
   population = new Population(200);
   env = new Environment();
-  var xende = env.createStripes(20);
+  var xende = env.createBoxes(20, 1);
+  printout = createP();
 }
 
 function draw() {
   background(0, 50);
 
   var alive = population.run();
-  if (count == lifespan || alive < 50) {
+  if (count == lifespan || alive == 0) {
     var avgfitness = population.evaluate();
     population.selection();
-    console.log(count, alive, floor(avgfitness));
+    printout.html('Generation: '+generation +'<br>Lifespan: '+count +'<br>Alive: '+ alive +'<br>Avg. fitness: '+ floor(avgfitness));
     count = 0;
     generation++;
   }
